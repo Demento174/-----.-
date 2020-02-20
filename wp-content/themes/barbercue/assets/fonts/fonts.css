@@ -1,0 +1,35 @@
+@font-face{
+
+    font-family: 'merriweather-heavy';
+
+    src: url('./merriweather-heavy.ttf');
+}
+
+@font-face{
+
+    font-family: 'merriweather-italic';
+
+    src: url('./Merriweather-italic.ttf');
+}
+
+
+@font-face{
+
+    font-family: 'merriweather';
+
+    src: url('./Merriweather-Regular.ttf');
+}
+
+@font-face{
+
+    font-family: 'semplicitaPro-bold';
+
+    src: url('./Semplicita_Pro_Bold.otf');
+}
+
+@font-face{
+
+    font-family: 'semplicitaPro-regular';
+
+    src: url('./Semplicita_Pro_Regular.otf');
+}

@@ -1,0 +1,24 @@
+#This Apache config file was created by Duplicator Installer on 2019-04-30 13:03:32.
+#The original can be found in archived file with the name htaccess.orig
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+# Заголовок Cache-Control
+<IfModule mod_headers.c>
+        Header append Cache-Control "no-store, no-cache, must-revalidate"
+</IfModule>
+
+# Заголовок Expires
+<IfModule mod_expires.c>
+        ExpiresActive On ExpiresDefault "now"
+</IfModule>

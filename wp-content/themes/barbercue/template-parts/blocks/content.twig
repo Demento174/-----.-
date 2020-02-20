@@ -1,0 +1,48 @@
+<main class="content">
+	<div class="container">
+		{% for cat in terms %}
+			<section class="categorie" id="{{cat.slug}}">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+						<h4>{{cat.name}}</h4>
+					</div>
+					
+					{% set blocks = function('get_posts',{
+														  'numberposts': -1,
+						                                  'post_type':'dish',
+						                                  'tax_query':{
+																0:{
+																	'taxonomy' : 'tax_dish',
+																	'field'    : 'id',
+																	'terms'    : cat.term_id,
+																	'operator' : 'IN'
+																}
+															}
+															}
+											)
+					%}
+					
+					{% for block in blocks %}
+						<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+							<article class="block"  data-target="#item_{{ block.ID }}" data-toggle="modal" >
+								<div class="img">
+									{{ function('get_the_post_thumbnail',block.ID) }}
+								</div>
+								<div class="title_price">
+									<h5>{{ block.post_title }}</h5>
+									<div class="price">
+										<span>
+											<i class="fas fa-tags"></i>
+											{{ function('get_field','price',block.ID) }} рублей
+											<span class="weight">{{ function('get_field','weight',block.ID) }} гр</span>
+										</span>
+									</div>
+								</div>
+							</article>
+						</div>
+					{% endfor %}
+				</div>
+			</section>
+		{% endfor %}
+	</div>
+</main>

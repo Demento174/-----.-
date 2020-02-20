@@ -1,0 +1,150 @@
+.buttonAnimation button{
+    font-family: 'Roboto-Regular', sans-serif;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    -webkit-appearance: none;
+    border: none;
+    background: none;
+    color:#697b83;;
+    width: 300px;
+    height:50px;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    z-index: 10;
+    background: #ffffff;
+}
+
+.buttonAnimation button span{
+    display: block;
+    position: relative;
+    line-height: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.buttonAnimation button > span:after{
+    content:'';
+    position: absolute;
+    top:0;
+    left: 50%;
+    width: 20px;
+    height: 0;
+    border: 1px solid #e82d38;
+    border-left: none;
+    border-bottom: none;
+    transition: height 0.15s ease-out, width 0.15s ease-out 0.15s;
+}
+
+.buttonAnimation:hover button > span:after{
+    width: calc(50% - 1px);
+    height: calc(100% - 2px);
+    transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
+}
+
+.buttonAnimation button > span:before{
+    content:'';
+    position: absolute;
+    top:0;
+    right: 50%;
+    width: 20px;
+    height: 0;
+    border: 1px solid #e82d38;
+
+    border-right: none;
+    border-bottom: none;
+    transition: height 0.15s ease-out, width 0.15s ease-out 0.15s;
+    z-index: 1;
+}
+
+.buttonAnimation:hover button > span:before{
+    width: calc(50% - 1px);
+    height: calc(100% - 2px);
+    transition: width 0.15s ease-out, height 0.15s ease-out 0.15s;
+}
+
+.buttonAnimation button > span > span:before{
+    content:'';
+    position: absolute;
+    bottom:0;
+    right: 0%;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    z-index: 1;
+}
+
+.buttonAnimation:hover button > span > span:before{
+    opacity: 1;
+    border-bottom: 1px solid #e82d38;
+    width: calc(50%);
+    height: 1px;
+    transition: opacity 0s ease-out 0.29s, width 0.15s ease-out 0.3s;
+}
+
+.buttonAnimation button > span > span:after{
+    content:'';
+    position: absolute;
+    bottom:0;
+    left: 0%;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+
+}
+
+.buttonAnimation:hover button > span > span:after{
+    opacity: 1;
+    border-bottom: 1px solid #e82d38;
+    width: calc(50%);
+    height: 1px;
+    transition: opacity 0s ease-out 0.29s, width 0.15s ease-out 0.3s;
+}
+
+.buttonAnimation button > span > span > span{
+    transition: color 0.15s ease-out 0.3s;
+    color: #697b83;
+}
+
+.buttonAnimation:hover button > span > span > span{
+    color:#e82d38;
+}
+
+.buttonAnimation button > span > span > span:after{
+    position: absolute;
+    top:0;left:0;right:0;bottom:0;
+    color:white;
+    content: attr(data-attr-span);
+    width: 0%;
+    height: 100%;
+    background:#e82d38;
+    white-space: nowrap;
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    transition: width 0.2s;
+}
+
+.buttonAnimation button > span > span > span:before{
+    content:'';
+    position:absolute;
+    right: 8px;
+    top: 14px;
+    width: 20px;
+    height: 20px;
+    border: 3px solid white;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 3px;
+    transform: rotate(45deg);
+    z-index: 2;
+}
+
+.buttonAnimation button:hover > span > span > span:after{
+    width: 100%;
+}
+
+

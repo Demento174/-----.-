@@ -1,0 +1,54 @@
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-md-12 col-lg-2 col-xl-2">
+				<div class="logo">
+					<img src="{{ options.logo.url }}" alt="{{ options.logo.alt }}">
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-12 col-lg-10 col-xl-10">
+				<div class="header_top">
+					<div class="row">
+						<div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+							<div class="header_top_content">
+								{{ options.shedule }}
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+							<div class="header_top_content">
+								{{ options.delivery }}
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+							<div class="header_top_content phone">
+								<a href="tel:{{ options.phone }}">{{ options.phone }}</a>
+								<div class="adress">{{ options.adress }}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="header_bottom">
+					<div class="row">
+						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+							<nav>
+								{% for item in terms %}
+									
+							        {% if(function('get_field','switch_tax',item)) %}
+									<li>
+										<a href="#{{ item.slug }}" class="scroll">{{ function('get_field','short_name',item) }}</a>
+									</li>
+									{% endif %}
+								{%endfor%}
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+				<div class="hr"></div>
+			</div>
+		</div>
+	</div>
+</header>

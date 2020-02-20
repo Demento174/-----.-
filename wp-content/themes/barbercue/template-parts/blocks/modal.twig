@@ -1,0 +1,48 @@
+<section class="modal_section">
+	<div class="container">
+		{% for cat in terms %}
+			<div class="row">
+				{% set blocks = function('get_posts',{
+					'numberposts': -1,
+					'post_type':'dish',
+					'tax_query':{
+						0:{
+							'taxonomy' : 'tax_dish',
+							'field'    : 'id',
+							'terms'    : cat.term_id,
+							'operator' : 'IN'
+						}
+					}
+				}
+					)
+				%}
+				
+				{% for block in blocks %}
+					<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+						<div class="modal modal_data fade" id="item_{{ block.ID }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<div class="modal_wrapper">
+										<div class="modal_img">{{ function('get_the_post_thumbnail',block.ID) }}</div>
+										<div class="modal_content">
+											{{ block.post_content }}
+										</div>
+										<div class="modal_bottom">
+											<span>{{ options.shedule }}</span>
+											<span>{{ options.delivery }}</span>
+											<span><a href="tel:{{ options.phone }}">{{ options.phone }}</a></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endfor %}
+	</div>
+</section>
